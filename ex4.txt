@@ -1,0 +1,26 @@
+
+BÀI TẬP 4: RỦI RO ĐÁNH CẮP MẬT KHẨU TỪ TRÌNH DUYỆT
+1. BỐI CẢNH
+Công ty đang cân nhắc giữa hai phương án quản lý mật khẩu cho nhân viên:
+- Phương án 1: Cho phép nhân viên lưu mật khẩu trực tiếp trên Google Chrome để thuận tiện và làm việc nhanh chóng.
+- Phương án 2: Bắt buộc cài đặt và sử dụng ứng dụng quản lý mật khẩu chuyên dụng Bitwarden.
+2. BẢNG SO SÁNH CÁC TIÊU CHÍ BẢO MẬT
+-----------------------------+
+| Tiêu chí                     | Lưu mật khẩu trên Google Chrome                             | Sử dụng Bitwarden                                           |
++------------------------------+-------------------------------------------------------------+-------------------------------------------------------------+
+| Khả năng chống Infostealer   | Kém / Rất rủi ro: Trình duyệt lưu mật khẩu (tại file Login  | Cao / An toàn: Dữ liệu được mã hóa đầu cuối trước khi rời   |
+|                              | Data) dưới dạng mã hóa cục bộ phụ thuộc hệ điều hành. Các   | khỏi thiết bị. Kẻ gian chỉ nhận được gói dữ liệu đã mã hóa  |
+|                              | mã độc Infostealer dễ dàng trích xuất khi nhiễm độc.        | hoàn toàn không đọc được nếu không có Master Password.      |
++------------------------------+-------------------------------------------------------------+--------------------------------
+| Zero-Knowledge Architecture  | Không: Google nắm giữ cơ chế hoặc đồng bộ qua tài khoản     | Có: Áp dụng kiến trúc Zero-Knowledge. Chỉ có bạn mới biết   |
+|                              | cá nhân. Dữ liệu có thể bị ảnh hưởng nếu tài khoản Google   | chìa khóa giải mã két sắt. Nhà cung cấp không biết mật khẩu.|
+|                              | bị xâm phạm.                                                |                                                             |
++------------------------------+-------------------------------------------------------------+-------------------------------------------------------------+
+| Khả năng đồng bộ chéo nền   | Trung bình: Tốt trong hệ sinh thái Google Chrome trên các   | Xuất sắc: Hỗ trợ đồng bộ đa nền tảng mạnh mẽ (Windows,      |
+| tảng                         | thiết bị, nhưng hạn chế khi dùng chéo các trình duyệt khác  | macOS, Linux, Android, iOS và các extension trình duyệt)    |
+|                              | hoặc môi trường doanh nghiệp khắt khe.                      | độc lập và an toàn thời gian thực.                          |
++------------------------------+-------------------------------------------------------------+--------------------------------
+3. LẬP LUẬN TẠI SAO BITWARDEN THẮNG THẾ VỀ MẶT BẢO MẬT
+1. Kháng mã độc Infostealer triệt để: Trình duyệt web sinh ra không phải là két sắt chuyên dụng. Các file lưu trữ mật khẩu của Chrome nằm ở thư mục cục bộ, dễ là mục tiêu tấn công hàng đầu của mã độc Infostealer. Ngược lại, Bitwarden cách ly dữ liệu mật khẩu ra khỏi trình duyệt và mã hóa hoàn toàn.
+2. Cơ chế mã hóa đầu cuối & Zero-Knowledge: Dữ liệu được mã hóa từ máy khách trước khi đồng bộ lên đám mây. Kẻ tấn công hay nhà cung cấp dịch vụ cũng không thể đọc được nội dung bên trong nếu không có Master Password.
+3. Kiểm soát bảo mật doanh nghiệp: Đối với doanh nghiệp, việc dùng Bitwarden giúp chuẩn hóa chính sách an toàn thông tin (đổi mật khẩu định kỳ, xác thực 2 bước 2FA, chia sẻ mật khẩu an toàn giữa các phòng ban). Sự đánh đổi về việc tốn thêm vài giây nhập Master Password hoàn toàn xứng đáng để bảo vệ dữ liệu tối mật trước các nguy cơ tấn công mạng tinh vi.
